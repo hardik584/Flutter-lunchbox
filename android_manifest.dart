@@ -31,3 +31,23 @@ dependencies {
     androidTestImplementation "com.android.support:support-annotations:28.0.0"
 }
 apply plugin: 'com.google.gms.google-services'
+
+ 
+ // Status Bar hide
+ 
+  @override
+  void initState() { 
+    super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
+  }
+
+// Status Bar Show
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+
+  }
+  
