@@ -9,8 +9,15 @@ List<String> imageUrl = [
   "https://firebasestorage.googleapis.com/v0/b/chatbox-ce822.appspot.com/o/Post%20Picture%2F485173417511878678.gif?alt=media&token=73d84182-4a36-4e91-a913-0668cb6b6881"
 ];
 
-class BasicCustomSingleChildLayout extends StatelessWidget {
-   
+class BasicCustomSingleChildLayout extends StatefulWidget {
+  @override
+  _BasicCustomSingleChildLayoutState createState() => _BasicCustomSingleChildLayoutState();
+}
+
+class _BasicCustomSingleChildLayoutState extends State<BasicCustomSingleChildLayout> {
+  Color abc = Colors.amber;
+  Color def = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -30,52 +37,138 @@ class BasicCustomSingleChildLayout extends StatelessWidget {
     print("boldText" + a.size.toString());
     print("boldText" + a.systemGestureInsets.toString());
     return Scaffold(
-      appBar: AppBar(title: Text("CustomSingleChildLayout Widget")),
+      appBar: AppBar(title: Text("CustomSingleChildLayout Widget"),actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            abc = RandomColor().randomColor();
+            def = RandomColor().randomColor();
+            setState(() {
+              
+            });
+           
+          },
+        )
+      ],),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            AnimatedContainer(
+              width: double.infinity,
+              height: 200,
+              duration: Duration(seconds: 1),
+              color: abc,
+              curve: Curves.easeOut,
+              child: Text("data",style: TextStyle(fontSize: 30,color:def ),textAlign: TextAlign.center,),
+            ),
+            Container(
+              height: 300,
+              width: double.infinity,
+              padding: EdgeInsets.all(10),
+              color: Colors.pink[100],
+              child: FittedBox(
+                fit: BoxFit.fill,
+                alignment: Alignment.topCenter,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      height: 1000,
+                      width: 1000,
+                      color: Colors.blue,
+                      child: Image.network(imageUrl.first, fit: BoxFit.cover),
+                    )),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: LayoutBuilder(
-                builder: (context, _) {
-                  return a.orientation.index == 0
-                      ? ListView.builder(
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          itemCount: imageUrl.length,
-                          itemBuilder: (_, index) {
-                            return Container(
-                              child: Image.network(
-                                imageUrl[index],
-                                fit: BoxFit.fill,
-                              ),
-                              width: double.infinity,
-                              height: 200,
-                              color: Colors.grey.withOpacity(0.2),
-                            );
-                          },
-                        )
-                      : GridView.builder(
-                          shrinkWrap: true,
-                          gridDelegate:
-                              new SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  mainAxisSpacing: 5,
-                                  crossAxisSpacing: 5),
-                          physics: BouncingScrollPhysics(),
-                          itemCount: imageUrl.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              child: Image.network(
-                                imageUrl[index],
-                                fit: BoxFit.fill,
-                              ),
-                              //  width: a.size.width/2,
-                              height: 30,
-                              color: Colors.grey.withOpacity(0.2),
-                            );
-                          },
+                builder: (context, constraints) {
+                  print(constraints.maxWidth);
+                  print(constraints.maxHeight);
+                  if (constraints.maxWidth < 400) {
+                    return ListView.separated(
+                      separatorBuilder: (_, index) {
+                        return SizedBox(
+                          height: 10,
                         );
+                      },
+                      shrinkWrap: true,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: imageUrl.length,
+                      itemBuilder: (_, index) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20),
+                              bottom: Radius.circular(10)),
+                          child: Column(
+                            children: <Widget>[
+                              AnimatedContainer(
+                                duration: Duration(seconds: 1),
+                                curve: Curves.easeOut,
+                                child: Image.network(
+                                  imageUrl[index],
+                                  fit: BoxFit.fill,
+                                ),
+                                width: double.infinity,
+                                height: 200,
+                                color: abc,
+                              ),
+                              Container(
+                                height: 60,
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                width: double.infinity,
+                                color: def,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      "About the great cartoon",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.favorite,
+                                          color: Colors.pink),
+                                      onPressed: () {},
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  } else {
+                    return GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate:
+                          new SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              mainAxisSpacing: 5,
+                              crossAxisSpacing: 5),
+                      physics: BouncingScrollPhysics(),
+                      itemCount: imageUrl.length,
+                      itemBuilder: (context, index) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          clipBehavior: Clip.hardEdge,
+                          child: Container(
+                            child: Image.network(
+                              imageUrl[index],
+                              fit: BoxFit.fill,
+                            ),
+                            //  width: a.size.width/2,
+                            height: 30,
+                            color: Colors.grey.withOpacity(0.2),
+                          ),
+                        );
+                      },
+                    );
+                  }
                 },
               ),
             ),
