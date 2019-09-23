@@ -75,6 +75,30 @@ class CustomShapeClipper2 extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
- 
+ ***************************************************************************************************
+ //You can customize this clipper depend your requirement enjoy!!
+  
+  class InstaClipper2 extends CustomClipper<Path> {
+   int a ,b;
+
+InstaClipper2({this.a,this.b});
+
+
+  @override
+  Path getClip(Size size) {
+    final Path path = Path();
+    path.lineTo(0.0, size.height - a);
+
+    path.quadraticBezierTo(size.width - (size.width / 4), size.height - 30,
+        size.width * 5, size.height - a);
+
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
   
  
