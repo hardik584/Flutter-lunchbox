@@ -81,7 +81,7 @@ class CustomShapeClipper2 extends CustomClipper<Path> {
   class InstaClipper2 extends CustomClipper<Path> {
    int a ,b;
 
-InstaClipper2({this.a,this.b});
+ InstaClipper2({this.a,this.b});
 
 
   @override
@@ -100,5 +100,38 @@ InstaClipper2({this.a,this.b});
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
-  
+//You can use above class like below
+ClipPath(
+          clipper: InstaClipper2(a: 190,b: 110),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xfff93B5B3),
+            ),
+            height: MediaQuery.of(context).size.height,
+            width: double.infinity,
+          ),
+        ),
+        ClipPath(
+          clipper: InstaClipper2(a: 400,b: 200),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xfffC8DAD3),
+            ),
+            height: MediaQuery.of(context).size.height / 1.1,
+            width: double.infinity,
+          ),
+        ),
+        Positioned(
+          right: 0,
+          child: ClipPath(
+            clipper: InstaClipper2(a: 900,b: 200),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffF2F6F5),
+              ),
+              height: MediaQuery.of(context).size.height/1 ,
+              width: MediaQuery.of(context).size.width / 1.3,
+            ),
+          ),
+****************************************************************************************************************
  
