@@ -39,3 +39,28 @@ class ImageModel
                 }
               },
             ),
+**********************************************************************
+  onPressed: () {
+                                if (Theme.of(context).platform ==
+                                    TargetPlatform.android) {
+                                  Map<String, dynamic> user = {
+                                    "username": userName.text,
+                                    "password": userPassword.text,
+                                    "app_type": 0
+                                  };
+                                  http
+                                      .post(
+                                    "http://yoshan.co.nz/timesheet/api/login.php",
+                                    body: json.encode(user),
+                                  )
+                                      .then((onValue) {
+                                    var a = json.decode(onValue.body);
+                                    print(onValue.body);
+                                    print(a["status"]);
+                                  });
+                                } else if (Theme.of(context).platform ==
+                                    TargetPlatform.iOS) {}
+
+                                // Navigator.pushReplacementNamed(
+                                //     context, "/first");
+                              },
