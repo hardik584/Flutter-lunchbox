@@ -1,4 +1,5 @@
-   if (_scaffoldKey.currentState.isDrawerOpen)
+//https://github.com/shiburagi/Drawer-Behavior-Flutter 
+if (_scaffoldKey.currentState.isDrawerOpen)
                 _scaffoldKey.currentState.openEndDrawer();
               else {
                 _scaffoldKey.currentState.openDrawer();
