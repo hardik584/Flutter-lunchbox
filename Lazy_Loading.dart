@@ -13,7 +13,7 @@ class LazyLoad extends StatefulWidget {
 
 class _LazyLoadState extends State<LazyLoad> {
   int present = 0;
-  int perPage = 1                     0;
+  int perPage = 10;
   List<Posts> userList = List<Posts>();
   List<Posts> items = List<Posts>();
 
