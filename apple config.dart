@@ -11,3 +11,7 @@ Like example and repeat 1 step for get that package in pod
   pod "BSImagePicker", "~> 2.8"
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
+
+3. moreever i got right now if your project with the firebase then you have to put  googleService-info.plist in Runner directory
+
+  and enjoy ios
