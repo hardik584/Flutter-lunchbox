@@ -21,15 +21,25 @@ class _LoginPageState extends State<LoginPage> {
               height: 300,
               width: 300,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColor.colorPink,
-                    AppColor.colorPink.withOpacity(0.7)
-                  ]
+                gradient: LinearGradient(colors: [
+                  AppColor.colorPink,
+                  AppColor.colorPink.withOpacity(0.7)
+                ]),
+                //backgroundBlendMode: BlendMode.exclusion,
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 2,
+                      color: AppColor.colorPink.withOpacity(0.3),
+                      spreadRadius: 2,
+                      offset: Offset(10, 20))
+                ],
+                //color: AppColor.colorPink,
+
+                //color: AppColor.colorPink,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(800),
                 ),
-                  //color: AppColor.colorPink,
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(800))),
+              ),
             ),
           ),
           Positioned(
@@ -38,67 +48,92 @@ class _LoginPageState extends State<LoginPage> {
               height: 200,
               width: 200,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColor.colorOrange.withOpacity(0.7),
-                    AppColor.colorOrange,
-                  ]
+                gradient: LinearGradient(colors: [
+                  AppColor.colorOrange.withOpacity(1.0),
+                  AppColor.colorOrange,
+                ]),
+                //  backgroundBlendMode: BlendMode.exclusion,
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 2,
+                      color: AppColor.colorOrange.withOpacity(0.3),
+                      spreadRadius: 2,
+                      offset: Offset(-18, 20))
+                ],
+                //color: AppColor.colorPink,
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(800),
                 ),
-                  //color: AppColor.colorPink,
-                  borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(800))),
+              ),
             ),
           ),
           Positioned(
-            bottom:  -50,
+            bottom: -50,
             right: 0,
             child: Container(
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                // gradient: LinearGradient(
-                //   colors: [
-                //     AppColor.colorOrange,
-                //     AppColor.colorOrange.withOpacity(0.7)
-                //   ]
-                // ),
-                   color: AppColor.colorPinkLight,
+                  // gradient: LinearGradient(
+                  //   colors: [
+                  //     AppColor.colorOrange,
+                  //     AppColor.colorOrange.withOpacity(0.7)
+                  //   ]
+                  // ),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 2,
+                        color: AppColor.colorPink.withOpacity(0.2),
+                        spreadRadius: 2,
+                        offset: Offset(12, -20))
+                  ],
+                  color: AppColor.colorPinkLight,
                   borderRadius:
-                      BorderRadius.only(topLeft:  Radius.circular(1000))),
+                      BorderRadius.only(topLeft: Radius.circular(1000))),
             ),
           ),
           Positioned(
-            bottom:  -130,
+            bottom: -130,
             right: 50,
             child: Container(
               height: 160,
               width: 160,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
+                  gradient: LinearGradient(colors: [
                     AppColor.colorOrangeLight,
                     AppColor.colorOrangeLight.withOpacity(0.7)
-                  ]
-                ),
-                   color: AppColor.colorOrangeLight,
-                  borderRadius:
-                      BorderRadius.all( Radius.circular(1000))),
+                  ]),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 2,
+                        color: AppColor.colorOrange.withOpacity(0.2),
+                        spreadRadius: 2,
+                        offset: Offset(-14, -10))
+                  ],
+                  color: AppColor.colorOrangeLight,
+                  borderRadius: BorderRadius.all(Radius.circular(1000))),
             ),
           ),
           Container(
-            child: Center(child: Text("Hello\nWorld",style: TextStyle(fontSize: 100, decoration: TextDecoration.underline,decorationStyle: TextDecorationStyle.dotted,),)),
+            child: Center(
+                child: Text(
+              "Hello\nWorld",
+              style: TextStyle(
+                fontSize: 100,
+                decoration: TextDecoration.underline,
+                decorationStyle: TextDecorationStyle.dashed,
+              ),
+            )),
           ),
         ],
       ),
     );
   }
 }
- 
 
-class AppColor
-{
+class AppColor {
   static Color colorPink = Color.fromRGBO(238, 86, 125, 1.0);
-  static Color colorOrange = Color.fromRGBO(254,172, 125, 1.0);
-  static Color colorPinkLight = Color.fromRGBO(254,227, 236, 1.0);
-  static Color colorOrangeLight = Color.fromRGBO(228,209, 204, 1.0);
+  static Color colorOrange = Color.fromRGBO(254, 172, 125, 1.0);
+  static Color colorPinkLight = Color.fromRGBO(254, 227, 236, 1.0);
+  static Color colorOrangeLight = Color.fromRGBO(228, 209, 204, 1.0);
 }
