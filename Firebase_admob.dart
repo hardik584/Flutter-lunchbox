@@ -1,5 +1,24 @@
 home.dart
+  
+ @override
+  Widget build(BuildContext context)
+{
+  
+_bannerAd.isLoaded().then((onValue) {
+      if (onValue) {
 
+        // print("object if &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&s ");
+        // _bannerAd..show();
+      } else {
+        print("object else ##########################");
+        _bannerAd ??= createBannerAd();
+        _bannerAd
+          ..load()
+          ..show();
+      }
+    });
+  return Scaffold();
+}
 ***************************************************************************************************
 
 import 'dart:async';
