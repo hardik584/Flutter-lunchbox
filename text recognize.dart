@@ -4,7 +4,8 @@ module:
 firebase_ml_vision: ^0.9.3+3
 image_picker: ^0.6.2+1
 
-
+//If you got error in your project then read this link
+https://github.com/hardik584/Flutter-lunchbox/blob/master/gradlefileerror.gradle
 
 import 'dart:io';
 
