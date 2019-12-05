@@ -1,0 +1,212 @@
+Microsoft Windows [Version 10.0.10586]
+(c) 2015 Microsoft Corporation. All rights reserved.
+
+C:\Users\Android>node
+Welcome to Node.js v12.13.1.
+Type ".help" for more information.
+> 2+3
+5
+> node 3+3
+Thrown:
+node 3+3
+     ^
+
+SyntaxError: Unexpected number
+> node
+Thrown:
+ReferenceError: node is not defined
+>
+(To exit, press ^C again or ^D or type .exit)
+>
+
+C:\Users\Android>npm
+
+Usage: npm <command>
+
+where <command> is one of:
+    access, adduser, audit, bin, bugs, c, cache, ci, cit,
+    clean-install, clean-install-test, completion, config,
+    create, ddp, dedupe, deprecate, dist-tag, docs, doctor,
+    edit, explore, get, help, help-search, hook, i, init,
+    install, install-ci-test, install-test, it, link, list, ln,
+    login, logout, ls, org, outdated, owner, pack, ping, prefix,
+    profile, prune, publish, rb, rebuild, repo, restart, root,
+    run, run-script, s, se, search, set, shrinkwrap, star,
+    stars, start, stop, t, team, test, token, tst, un,
+    uninstall, unpublish, unstar, up, update, v, version, view,
+    whoami
+
+npm <command> -h  quick help on <command>
+npm -l            display full usage info
+npm help <term>   search for help on <term>
+npm help npm      involved overview
+
+Specify configs in the ini-formatted file:
+    C:\Users\Android\.npmrc
+or on the command line via: npm <command> --key value
+Config info can be viewed via: npm help config
+
+npm@6.12.1 C:\Program Files\nodejs\node_modules\npm
+
+C:\Users\Android>
+C:\Users\Android>
+C:\Users\Android>$ npm install -g firebase-tools
+'$' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Android>npm install -g firebase-tools
+C:\Users\Android\AppData\Roaming\npm\firebase -> C:\Users\Android\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js
+
+> protobufjs@6.8.8 postinstall C:\Users\Android\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\protobufjs
+> node scripts/postinstall
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.2 (node_modules\firebase-tools\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ firebase-tools@7.9.0
+added 513 packages from 323 contributors in 33.834s
+
+C:\Users\Android>ls
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Android>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 500A-93FD
+
+ Directory of C:\Users\Android
+
+05-Dec-19  03:42 PM    <DIR>          .
+05-Dec-19  03:42 PM    <DIR>          ..
+05-Dec-19  01:34 PM    <DIR>          .android
+09-Sep-19  12:23 PM    <DIR>          .AndroidStudio3.5
+05-Dec-19  03:42 PM    <DIR>          .config
+09-Sep-19  04:41 PM    <DIR>          .crashlytics
+16-Sep-19  10:11 AM                16 .emulator_console_auth_token
+14-Oct-19  05:50 PM                59 .gitconfig
+10-Sep-19  10:33 AM    <DIR>          .gradle
+05-Dec-19  03:42 PM                19 .node_repl_history
+14-Oct-19  05:50 PM    <DIR>          .ssh
+04-Dec-19  10:14 AM    <DIR>          .vscode
+28-Nov-19  09:56 AM    <DIR>          abc
+12-Nov-19  06:14 PM    <DIR>          AndroidStudioProjects
+15-Oct-19  05:14 PM                 0 brinda-backup
+09-Sep-19  04:01 PM    <DIR>          Contacts
+04-Dec-19  04:17 PM    <DIR>          Desktop
+17-Sep-19  03:26 PM    <DIR>          Documents
+05-Dec-19  03:40 PM    <DIR>          Downloads
+09-Sep-19  04:01 PM    <DIR>          Favorites
+09-Sep-19  04:01 PM    <DIR>          Links
+09-Sep-19  04:01 PM    <DIR>          Music
+22-Nov-19  09:24 AM    <DIR>          OneDrive
+09-Sep-19  04:01 PM    <DIR>          Pictures
+10-Sep-19  10:01 AM    <DIR>          Postman
+09-Sep-19  04:01 PM    <DIR>          Saved Games
+11-Sep-19  10:32 AM    <DIR>          Searches
+02-Dec-19  01:14 PM    <DIR>          Videos
+               4 File(s)             94 bytes
+              24 Dir(s)  15,956,410,368 bytes free
+
+C:\Users\Android>firebase
+Usage: firebase [options] [command]
+
+Options:
+  -V, --version                                             output the version number
+  -P, --project <alias_or_project_id>                       the Firebase project to use for this command
+  -j, --json                                                output JSON instead of text, also triggers non-interactive
+                                                            mode
+  --token <token>                                           supply an auth token for this command
+  --non-interactive                                         error out of the command instead of waiting for prompts
+  --interactive                                             force interactive shell treatment even when not detected
+  --debug                                                   print verbose debug output and keep a debug log file
+  -h, --help                                                output usage information
+
+Commands:
+  appdistribution:distribute [options] <distribution-file>  upload a distribution
+  apps:create [options] [platform] [displayName]            create a new Firebase app. [platform] can be IOS, ANDROID
+                                                            or WEB (case insensitive).
+  apps:list [platform]                                      list the registered apps of a Firebase project.
+                                                            Optionally filter apps by [platform]: IOS, ANDROID or WEB
+                                                            (case insensitive)
+  apps:sdkconfig [options] [platform] [appId]               print the Google Services config of a Firebase app.
+                                                            [platform] can be IOS, ANDROID or WEB (case insensitive)
+  auth:export [options] [dataFile]                          Export accounts from your Firebase project into a data
+                                                            file
+  auth:import [options] [dataFile]                          import users into your Firebase project from a data
+                                                            file(.csv or .json)
+  database:get [options] <path>                             fetch and print JSON data at the specified path
+  database:instances:create <instanceName>                  create a realtime database instance
+  database:instances:list                                   list realtime database instances
+  database:profile [options]                                profile the Realtime Database and generate a usage report
+  database:push [options] <path> [infile]                   add a new JSON object to a list of data in your Firebase
+  database:remove [options] <path>                          remove data from your Firebase at the specified path
+  database:set [options] <path> [infile]                    store JSON data at the specified path via STDIN, arg, or
+                                                            file
+  database:settings:get [options] <path>                    read the realtime database setting at path
+  database:settings:set [options] <path> <value>            set the realtime database setting at path.
+  database:update [options] <path> [infile]                 update some of the keys for the defined path in your
+                                                            Firebase
+  deploy [options]                                          deploy code and assets to your Firebase project
+  emulators:exec [options] <script>                         start the local Firebase emulators, run a test script,
+                                                            then shut down the emulators
+  emulators:start [options]                                 start the local Firebase emulators
+  experimental:functions:shell [options]                    launch full Node shell with emulated functions. (Alias
+                                                            for `firebase functions:shell.)
+  ext                                                       display information on how to use ext commands and
+                                                            extensions installed to your project
+  ext:configure [options] <extensionInstanceId>             configure an existing extension instance
+  ext:info [options] <extensionName>                        display information about an extension by name
+                                                            (extensionName@x.y.z for a specific version)
+  ext:install [options] <extensionName>                     install an extension, given <extensionName> or
+                                                            <extensionName@versionNumber>
+  ext:list                                                  list all the extensions that are installed in your
+                                                            Firebase project
+  ext:uninstall [options] <extensionInstanceId>             uninstall an extension that is installed in your Firebase
+                                                            project by instance ID
+  ext:update <extensionInstanceId>                          update an existing extension instance to the latest
+                                                            version
+  firestore:delete [options] [path]                         Delete data from Cloud Firestore.
+  firestore:indexes [options]                               List indexes in your project's Cloud Firestore database.
+  functions:config:clone [options]                          clone environment config from another project
+  functions:config:get [path]                               fetch environment config stored at the given path
+  functions:config:set [values...]                          set environment config with key=value syntax
+  functions:config:unset [keys...]                          unset environment config at the specified path(s)
+  functions:delete [options] [filters...]                   delete one or more Cloud Functions by name or group name.
+  functions:log [options]                                   read logs from deployed functions
+  functions:shell [options]                                 launch full Node shell with emulated functions
+  help [command]                                            display help information
+  hosting:disable [options]                                 stop serving web traffic to your Firebase Hosting site
+  init [feature]                                            setup a Firebase project in the current directory
+  list                                                      [DEPRECATED: use `projects:list`] list the Firebase
+                                                            projects you have access to
+  login [options]                                           log the CLI into Firebase
+  login:ci [options]                                        generate an access token for use in non-interactive
+                                                            environments
+  logout                                                    log the CLI out of Firebase
+  open [link]                                               quickly open a browser to relevant project resources
+  projects:addfirebase [projectId]                          add Firebase resources to a Google Cloud Platform project
+  projects:create [options] [projectId]                     create a new firebase project
+  projects:list                                             list all Firebase projects you have access to
+  serve [options]                                           start a local server for your static assets
+  setup:emulators:database                                  downloads the database emulator
+  setup:emulators:firestore                                 downloads the firestore emulator
+  setup:emulators:pubsub                                    downloads the pubsub emulator
+  setup:web                                                 [DEPRECATED: use `apps:sdkconfig web`] display this
+                                                            project's setup information for the Firebase JS SDK
+  target [type]                                             display configured deploy targets for the current project
+  target:apply <type> <name> <resources...>                 apply a deploy target to a resource
+  target:clear <type> <target>                              clear all resources from a named resource target
+  target:remove <type> <resource>                           remove a resource target
+  tools:migrate [options]                                   [DEPRECATED] ensure your firebase.json format is up to
+                                                            date
+  use [options] [alias_or_project_id]                       set an active Firebase project for your working directory
+
+C:\Users\Android>hardik
+'hardik' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Android>brinda
+'brinda' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Android>
