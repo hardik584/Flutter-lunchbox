@@ -7,3 +7,6 @@
 
 3. Flutter target
 /Users/infi_mini/Desktop/Yoshan-master/lib/main.dart
+
+4 Flutter framework dir
+ /Users/infi_mini/Desktop/Kartavya/Extra/flutter/bin/cache/artifacts/engine/ios
