@@ -1,0 +1,18 @@
+Go to 
+
+/Volumes/80/Work/botanical_garden_gandhinagar/build/ios/Release-iphoneos/Runner.app
+
+
+Create new folder as payload at following path,
+
+/Volumes/80/Work/botanical_garden_gandhinagar/build/ios/Release-iphoneos/
+
+put runner file inside the payload folder.
+
+the compress payload folder
+now rename zip file as payload.ipa instead of payload.zip.
+
+now .ipa file ready to use ...
+
+
+Woohooooooooooooooooooooooooooo !!!!!!!!!!
