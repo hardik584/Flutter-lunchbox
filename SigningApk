@@ -10,6 +10,7 @@ On Mac/Linux, use the following command:
 
 content_copy
 keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
 On Windows, use the following command:
 
 content_copy
@@ -17,5 +18,29 @@ keytool -genkey -v -keystore c:/Users/USER_NAME/key.jks -storetype JKS -keyalg R
 
 ****************************************************************************************************************************************
 
+=> key.properties
 
+- create key.properties folder inside android folder with following details:
 
+storePassword=flutter
+keyPassword=flutter
+keyAlias=AllUnitConverter
+storeFile=E:\Flutter\Infilon\all_unit_converter/allUnitConverterKey.jks
+
+****************************************************************************************************************************************
+
+=> changes to build.gradle file inside of your android/app folder.
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'io.fabric'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+def keystorePropertiesFile = rootProject.file("key.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 28
+    
+****************************************************************************************************************************************
