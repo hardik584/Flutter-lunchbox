@@ -1,5 +1,8 @@
+***************************************************************************************************************************************
+
 => set label, icon and check appId.
 
+****************************************************************************************************************************************
 => Create a keystore
 If you have an existing keystore, skip to the next step. If not, create one by running the following at the command line:
 
@@ -11,4 +14,8 @@ On Windows, use the following command:
 
 content_copy
 keytool -genkey -v -keystore c:/Users/USER_NAME/key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
+****************************************************************************************************************************************
+
+
 
