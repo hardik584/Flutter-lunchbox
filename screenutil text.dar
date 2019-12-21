@@ -1,0 +1,8 @@
+  static var mediumFontSize = ScreenUtil.getInstance().setSp(30);
+  static var largeFontSize = ScreenUtil.getInstance().setSp(34);
+  static var xLargeFontSize = ScreenUtil.getInstance().setSp(40);
+  
+   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    }
+    every screen we have to put inside build
