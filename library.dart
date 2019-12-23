@@ -4,3 +4,5 @@ flutter create --org com.yourdomain vayro
   
 /////Circle Range Slider
 https://pub.dev/packages/flutter_circular_slider
+sleek_circular_slider 
+  https://pub.dev/packages/sleek_circular_slider
