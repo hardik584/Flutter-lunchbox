@@ -1,3 +1,99 @@
+  buttonOnclick: () async {
+                    if (_formKey.currentState.validate()) {
+                      _formKey.currentState.save();
+                      SharedPreferences pre =
+                          await SharedPreferences.getInstance();
+                      var token = pre.getString("token");
+
+
+//                      http
+//                          .post(
+//                        "http://192.168.196.32:8090/auth/signup",
+//                        headers: {
+//                          "token": token,
+//                          "Content-Type": "multipart/form-data"
+//                        },
+//                        body: {
+//                          "name": nameController.text,
+//                          "email": emailController.text,
+//                          "mobile": "8238278196",
+//                          "address": addressController.text,
+//                          "city": cityController.text,
+//                          "reminder_interval": intervalValue,
+//                        },
+//                      )
+//                          .then((a) {
+//                        print(a);
+//                      });
+
+                      var request = http.MultipartRequest(
+                        "POST",
+                        Uri.parse(
+                          "http://192.168.196.32:8090/auth/signup",
+                        ),
+                      );
+                      Map<String, String> headers = {
+                        'Content-Type': 'multipart/form-data',
+                        'token': token
+                      };
+                      request.headers['token'] = token;
+                      request.headers["Content-Type"]='multipart/form-data';
+                      request.fields["name"] = "hardik";
+
+                      request.fields["email"] = "h@gmail.com";
+                      request.fields["mobile"] = "8238278196";
+                      request.fields["address"] = "afa";
+                      request.fields["city"] = "fsf";
+//                      if (image == null) {
+//                        ///request.fields[params_attachment_file] = "";
+//                      } else {
+//                        var streamPhoto = new http.ByteStream(
+//                            DelegatingStream.typed(image.openRead()));
+//                        var lengthPhoto = await image.length();
+//                        var multipartFile = new http.MultipartFile(
+//                            'attachment_file', streamPhoto, lengthPhoto,
+//                            filename: basename(image.path));
+//                        //contentType: new MediaType('image', 'png'));
+//                        request.files.add(multipartFile);
+//                      }
+                      request.files.add(
+                         http.MultipartFile.fromBytes(
+                          "avatar",
+                          image.readAsBytesSync(),
+                          filename: "test.png",
+                          contentType: MediaType("image","jpg")
+                        ),
+                      );
+                      request.fields["reminder_interval"] = "1";
+
+                      request.send().then((onValue) {
+                        print(onValue.statusCode);
+
+                        print(onValue.headers);
+                        print(onValue.contentLength);
+                      });
+
+//                      print(token);
+//                      Response response;
+//                      Dio dio = new Dio();
+//                      response = await dio.post(
+//                          "http://192.168.196.32:8090/auth/signup",
+//                          data: profile,
+//                          options: Options(
+//                              contentType: "multipart/form-data",
+//
+//                              headers: {
+//                                "token": token,
+//                                "Content-Type": "multipart/form-data"
+//                              }));
+
+//                      Navigator.pushReplacementNamed(
+//                          context, AppConstant.profileRoute);
+                    }
+                  },
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 Future<bool> callAPIMultipartForResolveQuery(
     APICall apiCall,
     String url,
