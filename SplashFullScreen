@@ -1,0 +1,20 @@
+import 'package:flutter/services.dart';
+
+ @override
+  void initState() {
+    // To make this screen full screen.
+    // It will hide status bar and notch.
+    SystemChrome.setEnabledSystemUIOverlays([]);
+
+    checkPermissions();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle(statusBarColor: AppColor.colorPrimaryDark));
+  }
