@@ -56,14 +56,18 @@
 //                        //contentType: new MediaType('image', 'png'));
 //                        request.files.add(multipartFile);
 //                      }
-                      request.files.add(
-                         http.MultipartFile.fromBytes(
-                          "avatar",
-                          image.readAsBytesSync(),
-                          filename: "test.png",
-                          contentType: MediaType("image","jpg")
-                        ),
-                      );
+                      if (image != null) {
+                        print(image.path.split(".").last);
+                        request.files.add(
+                          http.MultipartFile.fromBytes(
+                            "avatar",
+                            image.readAsBytesSync(),
+                            filename: "test.${image.path.split(".").last}",
+                            contentType: MediaType(
+                                "image", "${image.path.split(".").last}"),
+                          ),
+                        );
+                      }
                       request.fields["reminder_interval"] = "1";
 
                       request.send().then((onValue) {
