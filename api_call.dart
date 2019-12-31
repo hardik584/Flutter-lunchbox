@@ -243,3 +243,82 @@ Future doCardConnectApiCall(
     return null;
   }
 }
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:graphql/client.dart';
+import 'package:japaclub/utils/app_text.dart';
+import 'package:japaclub/utils/utils.dart';
+import 'package:http/http.dart' as http;
+
+abstract class OnAPIResponseHandler {
+  onSuccess(String tag, dynamic map);
+
+  onAPIError(String tag);
+
+  onNetworkError(String tag, String msg);
+
+  onChangeProgress(String tag, bool isShow);
+}
+
+Future doApiCall(
+    {@required String url,
+    @required Object params,
+    @required OnAPIResponseHandler responseHandler}) async {
+  try {
+    if (await checkinternet()) {
+      responseHandler.onChangeProgress(url, true);
+      //String token = await getPrefValue<String>(prefLoginToken);
+      Map m = {};
+      m.addAll(params);
+      showLog("URL", url);
+      showLog("REQUEST", json.encoder.convert(m));
+      //showLog("TOKEN", token);
+      Map<String, String> headers = {'Content-Type': 'application/json'};
+      /* if (token.isNotEmpty) {
+        headers.putIfAbsent('Authorization', () => token);
+      }*/
+      /* if (requestType == actionPost) {
+        response = await http
+            .post(url, body: json.encoder.convert(m), headers: headers)
+            .timeout(Duration(minutes: 1), onTimeout: () {
+          return null;
+        });
+      } else {
+        response =
+        await http.get(url).timeout(Duration(minutes: 1), onTimeout: () {
+          return null;
+        });
+      }*/
+
+      var response = await http
+          .post(url, body: json.encoder.convert(m), headers: headers)
+          .timeout(Duration(minutes: 1), onTimeout: () {
+        return null;
+      });
+
+      if (response != null) {
+        int statusCode = response.statusCode;
+        if (statusCode == 200) {
+          var result = json.decode(response.body);
+          showLog("RESPONSE", json.encoder.convert(result));
+          responseHandler.onSuccess(url, json.decode(response.body));
+          responseHandler.onChangeProgress(url, false);
+        } else if (statusCode == 500) {
+          responseHandler.onNetworkError(url, msgInternalServerError);
+          responseHandler.onChangeProgress(url, false);
+        }
+      } else {
+        responseHandler.onNetworkError(url, msgSlowConnection);
+        responseHandler.onChangeProgress(url, false);
+      }
+    } else {
+      responseHandler.onNetworkError(url, msgNoInternet);
+    }
+    return null;
+  } catch (e) {
+    showLog('API_EXCEPTION', e.toString());
+    responseHandler.onNetworkError(url, msgNWError);
+    responseHandler.onChangeProgress(url, false);
+    return null;
+  }
