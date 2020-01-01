@@ -59,3 +59,58 @@ Future doGraphQLAPICall(
     return result.data;
   }
 }
+Future doGraphQLMutationAPICall(
+    {String httpURL, String token, String queryData, int length}) async {
+  SharedPreferences pre = await SharedPreferences.getInstance();
+
+  DateTime tokenCheck = DateTime.parse(pre.getString(expiredTokenTime));
+  if (tokenCheck.isBefore(DateTime.now())) {
+    FirebaseUser a = await FirebaseAuth.instance.currentUser();
+    var temp = await a.getIdToken(refresh: true);
+
+    print(temp.token);
+    print(temp.expirationTime);
+
+    pre.setString(expiredTokenTime, temp.token);
+    pre.setString("token", temp.token);
+  }
+  final HttpLink _httpLink = HttpLink(
+    uri: httpURL,
+  );
+
+  final AuthLink _authLink = AuthLink(
+    getToken: () async => 'Bearer ${pre.getString("token")}',
+  );
+  final Link _link = _authLink.concat(_httpLink);
+  final GraphQLClient _client = GraphQLClient(
+    cache: InMemoryCache(),
+    link: _link,
+  );
+  final String readRepositories = queryData;
+  final int nRepositories = length;
+
+  final MutationOptions options = MutationOptions(
+    document: readRepositories,
+    variables: <String, dynamic>{
+      'starrableId': nRepositories,
+    },
+  );
+  bool network = await checkInternet();
+  if (network) {
+    final QueryResult result = await _client.mutate(options);
+
+    if (result.hasErrors) {
+      print(result.errors);
+      return {"status": "failed", "data": result.errors};
+    } else {
+      print(result.data);
+      return {"status": "success", "data": result.data};
+    }
+  } else {
+    return {
+      "status": "failed",
+      "data": [checkInternetMsg]
+    };
+  }
+}
+
