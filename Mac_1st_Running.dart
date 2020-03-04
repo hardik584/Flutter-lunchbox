@@ -25,3 +25,6 @@
    and when you have already pod file you want to update pod then fire below command
     5. pod repo update
 Sorry for my weak english
+
+ to remove existing pos file run below command: 
+    rm ios/Podfile
