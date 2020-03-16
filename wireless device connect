@@ -1,0 +1,6 @@
+Attach device with pc
+Go to D:\android\sdk\platform-tools>adb tcpip 5555
+Find ip in your mobile device
+Now Detach device from your pc
+D:\android\sdk\platform-tools>adb connect 192.168.193.13:5555
+ o/p:  connected to 192.168.193.13:5555
