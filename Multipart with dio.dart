@@ -78,3 +78,44 @@
                                 setState(() {});
                                 print(print);
                               });
+***********************************************************************************************************
+  // var uri = Uri.parse(productAddApi);
+                // var request = http.MultipartRequest('POST', uri)
+                //   ..fields[keyName] = 'nweiz@google.com a'
+                //   ..fields[keyCategory] = 'nweiz@google.com'
+                //   ..fields[keyQuantity] = 'nweiz@google.com'
+                //   ..fields[keyUnit] = 'nweiz@google.com'
+                //   ..fields[keyPrice] = 'nweiz@google.com'
+                //   ..fields[keyDesc] = 'nweiz@google.com'
+                //   ..fields[keyStatus] = 'nweiz@google.com'
+                //   ..files.add(await http.MultipartFile.fromPath(
+                //       keyImage, _productAddUpdatePresenter.image.path,
+                //       contentType: new MediaType('image', 'jpeg')));
+
+                // var response = await request.send();
+                // print(response.reasonPhrase);
+                // response.stream.transform(utf8.decoder).listen((value) {
+                //   print(value);
+                // });
+                // if (response.statusCode == 200) print(response);
+
+                FormData formData = FormData.fromMap({
+                  keyName: _productAddUpdatePresenter.productName.text.trim(),
+                  keyCategory: _productAddUpdatePresenter.productCategory.value,
+                  keyQuantity:
+                      _productAddUpdatePresenter.productQuantity.text.trim(),
+                  keyUnit: _productAddUpdatePresenter.productUnit.value,
+                  keyPrice: _productAddUpdatePresenter.productPrice.text.trim(),
+                  keyDesc: _productAddUpdatePresenter.productDesc.text.trim(),
+                  keyStatus: _productAddUpdatePresenter.productStatus.value,
+                  keyImage: MultipartFile.fromFileSync(
+                      _productAddUpdatePresenter.image.path,
+                      contentType: new MediaType('image', 'jpeg')
+                      )
+                });
+                Dio()
+                    .post(
+                      productAddApi,
+                      data: formData,
+                    )
+                    .then((value) => print(value.data));
