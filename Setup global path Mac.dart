@@ -8,3 +8,6 @@ open terminal
      source $HOME/.bash_profile
  =>4 now you can enjoy flutter anywhere in your mac os 
  
+When you get non window file path error while building flutter tool then go to the packages/flutter_tool folder directory and fire below
+
+your_pc_path/flutter/bin/flutter
