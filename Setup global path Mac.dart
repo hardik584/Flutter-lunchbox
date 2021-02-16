@@ -11,3 +11,11 @@ open terminal
 When you get non window file path error while building flutter tool then go to the packages/flutter_tool folder directory and fire below
 
 your_pc_path/flutter/bin/flutter
+
+
+1. Open Terminal
+2. Open Preferences
+3. Go to profile Tab
+4. Go to Shell Tab
+5. And inside the startup run command please put => source $HOME/.bash_profile and check both checkbox true
+6. Enjoy and cheers up
