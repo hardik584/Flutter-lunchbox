@@ -19,3 +19,6 @@ your_pc_path/flutter/bin/flutter
 4. Go to Shell Tab
 5. And inside the startup run command please put => source $HOME/.bash_profile and check both checkbox true
 6. Enjoy and cheers up
+
+***********************************************
+When you don't get flutter cmd in your zsh terminal then please change terminal shell type to bash in android studio and which IDE you are using.
