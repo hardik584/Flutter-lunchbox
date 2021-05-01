@@ -1,0 +1,123 @@
+Flutter 2.0 
+For null safely
+Change sdk in pubspec 
+Environment:
+      sdk: ‘>2.12.0 <3.0.0’
+
+Without null safely (Normal project)
+Environment:
+      sdk: ‘>2.7.0 <3.0.0’
+
+
+
+
+Command for migrate our project to null safely
+dart migrate
+
+Command for Migrate, check and  update latest version in pubspec 
+dart pub outdated --mode=null-safety
+flutter pub upgrade --major-versions
+dart migrate --skip-import-check
+
+Command for update flutter inside your project .flutter
+sh flutterw upgrade
+
+
+
+
+
+String  => Non nullable  => You can’t pass null inside a non nullable variable , and if you still try to pass null value inside it then the dart compiler will show AOT compile time error warning.
+Ex: String name;
+
+String? => Nullable String  => You can pass null or value inside it but you must have to apply condition before using nullable string
+Ex: String? name
+
+Late => define later => If you will declare variable in the class and that variable init later then you must have to use late keyword before variable name
+Ex: late String name;
+
+
+!  =>  When the variable type is nullable and if the value might come null in the variable and still you wanna accept it then you can use ! after variable name.
+Example:
+String? name;
+Text(name!);  //When you will put ! after variable name then compiler will remove warning error
+
+There are many ways to handle nullable things instead of ! operator
+1. Hard If Else condition
+    Example :
+      String? name;
+      if(name != null)
+      {
+           Text(name);
+      }
+
+2. ?? operator
+Example :
+   String? name;
+   Text(name??’test’);
+
+
+3. ! Operator
+Example :
+String? name;
+   Text(name!);  // It will ignore null check cause You are using ! operator
+
+
+
+
+
+4. ?. Operator
+Example
+Class A{
+     String? a;
+     String? b;
+A(this.a,this.b)
+}
+A a = A(null,”textB”)
+
+Text(a?.a??’-’);
+Text(a?.b??’-’);
+
+
+
+
+
+
+Full Code Example
+
+import 'dart:math';
+void main() {
+  Person a = Person(name: "hardik",facSport: "volly");
+  Person b = Person(name: "aes",facSport: "cricket");
+  Person c = Person(name: "hello",facSport: null,);
+  Person d = Person(name: "aes",);
+  
+  func(String name){
+  print("Problem "  + name);
+  }
+  
+  String? currentName;
+  if(currentName != null){
+    func(currentName);
+  }else{
+  }
+  
+  func(currentName??'null hato');
+  func(currentName!);
+  
+  //define later
+  late String currentUserName;
+  if(Random().nextBool()){
+    currentUserName = "Hardik kUmbhani";
+  }
+  
+  print("random" + currentUserName);
+  
+}
+
+class Person{
+
+final String name;
+final String? facSport;
+Person({required this.name,this.facSport});
+}
+
