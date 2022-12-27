@@ -4,7 +4,7 @@
     ```eval "$(homebrew/bin/brew shellenv)"
     brew update --force --quiet
     chmod -R go-w "$(brew --prefix)/share/zsh"```
-3.Install CocoaPods via this command 
+3. Install CocoaPods via this command 
     ```brew install cocoapods```
 
 Reference
