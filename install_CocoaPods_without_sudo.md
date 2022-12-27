@@ -8,7 +8,7 @@
     ```brew install cocoapods```
 
 Reference
-1.https://www.youtube.com/watch?v=Hg7ukb5oxSA // How to Install CocoaPods With Gem or With Homebrew
-2.https://www.youtube.com/watch?v=RT8Rh8yJy-w //Install Homebrew Without Sudo (macOS)
-3.https://docs.brew.sh/Installation#untar-anywhere-unsupported
-3.https://guides.cocoapods.org/using/getting-started.html#installation
+1.https://www.youtube.com/watch?v=Hg7ukb5oxSA // How to Install CocoaPods With Gem or With Homebrew <br />
+2.https://www.youtube.com/watch?v=RT8Rh8yJy-w //Install Homebrew Without Sudo (macOS)<br />
+3.https://docs.brew.sh/Installation#untar-anywhere-unsupported<br />
+3.https://guides.cocoapods.org/using/getting-started.html#installation<br />
