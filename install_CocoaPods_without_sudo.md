@@ -3,3 +3,9 @@
 brew update --force --quiet
 chmod -R go-w "$(brew --prefix)/share/zsh"`
 3.Install CocoaPods via this command `brew install cocoapods`
+
+reference
+1.https://www.youtube.com/watch?v=Hg7ukb5oxSA // How to Install CocoaPods With Gem or With Homebrew
+2.https://www.youtube.com/watch?v=RT8Rh8yJy-w //Install Homebrew Without Sudo (macOS)
+3.https://docs.brew.sh/Installation#untar-anywhere-unsupported
+3.https://guides.cocoapods.org/using/getting-started.html#installation
