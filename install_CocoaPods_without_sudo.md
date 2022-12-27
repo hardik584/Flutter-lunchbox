@@ -7,7 +7,7 @@
 3. Install CocoaPods via this command 
     ```brew install cocoapods```
 
-Reference
+Reference<br />
 1.https://www.youtube.com/watch?v=Hg7ukb5oxSA // How to Install CocoaPods With Gem or With Homebrew <br />
 2.https://www.youtube.com/watch?v=RT8Rh8yJy-w //Install Homebrew Without Sudo (macOS)<br />
 3.https://docs.brew.sh/Installation#untar-anywhere-unsupported<br />
